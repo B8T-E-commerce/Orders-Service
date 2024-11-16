@@ -1,0 +1,34 @@
+services:
+  order-service:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Only one Dockerfile for the product service
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    env_file:
+      - .env
+    networks:
+      - shared-network       # Connect to the external shared network for Eureka
+      - bridge-network
+
+  mysql:
+    image: mysql:8.0  # Using the official MySQL image
+    env_file:
+      - .env
+    ports:
+      - "${DATABASE_PORT}:${DATABASE_PORT_LOCALHOST}"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - bridge-network   # MySQL is only on the bridge network for internal communication with the Product Service
+
+volumes:
+  mysql_data:
+
+networks:
+  bridge-network:
+    driver: bridge   # Internal network for communication with MySQL
+  shared-network:
+    external: true    # External network for communication with Eureka
+
+

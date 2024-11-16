@@ -7,12 +7,6 @@ spring:
         locator:
           enabled: true  # Enable service discovery for routing
           lower-case-service-id: true  # Optional, makes the service ID lowercase
-  eureka:
-    client:
-      service-url:
-        defaultZone: http://localhost:8761/eureka/  # URL of the Eureka server (adjust as needed)
-      register-with-eureka: true  # Register the gateway with Eureka
-      fetch-registry: true        # Fetch the registry from Eureka
 
 
 

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 @RestController
-@RequestMapping("/api/orders")
+@RequestMapping("/orders")
 @Validated
 public class OrderController {
 

@@ -12,23 +12,19 @@ import java.util.Date;
 @NoArgsConstructor
 public class CreateOrderItemRequest {
 
-    @NonNull
     @NotNull
     private Long productId;
 
-    @NonNull
     @NotNull
     private String productName;
 
-    @NonNull
     @NotNull
     private Long sellerId;
 
-    @NonNull
     @NotNull
     private int quantity;
 
-    @NonNull
+    @NotNull
     private Double price;  // Price per unit of the product
 
 }

@@ -13,7 +13,6 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderDomain {
-
     private Long id;
     private Long userId;
     private Double totalPrice;

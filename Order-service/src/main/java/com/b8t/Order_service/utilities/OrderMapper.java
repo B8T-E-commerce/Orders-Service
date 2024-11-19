@@ -45,30 +45,6 @@ public class OrderMapper {
                 .build();
     }
 
-//    //  Set<CreateOrderItemRequest> -> Set<OrderItem>
-//    public Set<OrderItem> convertCreateOrderItemRequestToOrderItem(Set<CreateOrderItemRequest> createOrderItemRequests, CreateOrderRequest createOrderRequest){
-//        if(createOrderItemRequests == null) return null;
-//
-//        // Convert each CreateOrderItemRequest to OrderItem using Builder
-//        Set<OrderItem> orderItems = new HashSet<>();
-//        for (CreateOrderItemRequest request : createOrderItemRequests) {
-//            OrderItem orderItem = OrderItem.builder()
-//                    .productId(request.getProductId())
-//                    .productName(request.getProductName())
-//                    .sellerId(request.getSellerId())
-//                    .quantity(request.getQuantity())
-//                    .price(request.getPrice())
-////                    .order(convertDomainToOrderDAL(convertCreateOrderRequestToDomain(createOrderRequest))) //here i need to add orderDAL object!!!
-//                    .build();
-//            orderItems.add(orderItem);
-//        }
-//
-//        return orderItems;
-//    }
-
-
-
-
     /// Domain -> DTO
 
     //  OrderDomain -> CreateOrderResponse
@@ -109,9 +85,6 @@ public class OrderMapper {
 
         return orderDAL;
     }
-
-
-
 
     /// DAL -> Domain
 

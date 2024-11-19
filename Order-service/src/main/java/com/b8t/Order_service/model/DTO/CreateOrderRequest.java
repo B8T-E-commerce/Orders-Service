@@ -1,8 +1,8 @@
 package com.b8t.Order_service.model.DTO;
 
 import com.b8t.Order_service.model.OrderItem;
-import io.micrometer.common.lang.NonNull;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateOrderRequest {
-    @NonNull
+    @NotNull
     private Long userId;  // ID of the user placing the order
 
     @NotBlank(message = "Total price is mandatory")
@@ -24,9 +24,11 @@ public class CreateOrderRequest {
     @NotBlank(message = "Status is mandatory")
     private String status;  // Order status, e.g., "pending", "processed", "sent"
 
+    @NotNull
     // Shipping address information
     private CreateShippingAddressesRequest shippingAddresses;
 
+    @NotNull
     // List of items in the order
     private Set<OrderItem> orderedItems;
 }

@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-order-service-db-deployment
+  namespace: b8t
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-order-service-db
+  template:
+    metadata:
+      labels:
+        app: mysql-order-service-db
+    spec:
+      containers:
+        - name: mysql-order-service-db
+          image: mysql:8.0  # You can specify a different version if necessary
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: order-service-secret
+                  key: password
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: order-service-config
+                  key: MYSQL_DATABASE
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: order-service-secret
+                  key: db_username
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: order-service-secret
+                  key: password
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: mysql-order-service-data
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-order-service-data
+          persistentVolumeClaim:
+            claimName: mysql-order-service-pvc  # We will define PVC below

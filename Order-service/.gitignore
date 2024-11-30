@@ -34,3 +34,6 @@ build/
 
 .env
 
+### K8S ###
+*-secret.yaml
+*-configmap.yaml

@@ -4,10 +4,7 @@ import com.b8t.Order_service.model.OrderItem;
 import com.b8t.Order_service.model.ShippingAddresses;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -48,9 +45,11 @@ public class OrderDAL {
     // One-to-One relationship with ShippingAddresses
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "shipping_address_id", referencedColumnName = "id")
+    @ToString.Exclude  // Add this to exclude from toString()
     private ShippingAddresses shippingAddresses;
 
     // One-to-Many relationship with OrderItem
+    @ToString.Exclude  // Add this to exclude from toString()
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference // Prevents infinite recursion in JSON serialization
     private Set<OrderItem> orderedItems = new HashSet<>();

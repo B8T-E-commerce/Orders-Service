@@ -17,7 +17,7 @@ spec:
         - name: order-service
           image: gopnikradotinsky/order-service-order-service:latest
           ports:
-            - containerPort: 8083
+            - containerPort: 8084
           env:
             - name: EUREKA_URL
               valueFrom:
@@ -25,7 +25,7 @@ spec:
                   name: order-service-config
                   key:  EUREKA_URL
             - name: SERVER_PORT
-              value: "8083"
+              value: "8084"
             - name: MYSQL_DB_URL
               valueFrom:
                 configMapKeyRef:
@@ -46,3 +46,24 @@ spec:
                 secretKeyRef:
                   name: order-service-secret
                   key: password
+            - name: RABBITMQ_DEFAULT_PASS
+              valueFrom:
+                configMapKeyRef:
+                  name: order-service-config
+                  key: RABBITMQ_DEFAULT_PASS
+            - name: RABBITMQ_DEFAULT_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: order-service-config
+                  key: RABBITMQ_DEFAULT_USER
+            - name: RABBITMQ_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: order-service-config
+                  key: RABBITMQ_HOST
+            - name: RABBITMQ_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: order-service-config
+                  key: RABBITMQ_PORT
+

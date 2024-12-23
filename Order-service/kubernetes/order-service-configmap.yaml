@@ -7,3 +7,7 @@ data:
   EUREKA_URL: "http://eureka-server-service.b8t.svc.cluster.local:8761/eureka/"
   DATABASE_URL: "jdbc:mysql://mysql-order-service-db-service.b8t.svc.cluster.local:3306/ordersdb?useSSL=false&allowPublicKeyRetrieval=true"
   MYSQL_DATABASE: "ordersdb"
+  RABBITMQ_DEFAULT_PASS: "jakub"
+  RABBITMQ_DEFAULT_USER: "guest"
+  RABBITMQ_HOST: "rabbitmq"
+  RABBITMQ_PORT: "5672"

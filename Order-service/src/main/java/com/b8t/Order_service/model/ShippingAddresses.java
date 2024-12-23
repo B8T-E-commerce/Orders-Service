@@ -3,10 +3,7 @@ package com.b8t.Order_service.model;
 
 import com.b8t.Order_service.model.DAL.OrderDAL;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
@@ -25,7 +22,9 @@ public class ShippingAddresses {
     private String zip;
     private String country;
     private String email;
+
     // Bidirectional one-to-one relationship with OrderDAL
+    @ToString.Exclude  // Add this to exclude from toString()
     @OneToOne(mappedBy = "shippingAddresses")
     private OrderDAL order;
 

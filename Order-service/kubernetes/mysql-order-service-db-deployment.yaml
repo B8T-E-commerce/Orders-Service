@@ -37,6 +37,13 @@ spec:
                 secretKeyRef:
                   name: order-service-secret
                   key: password
+          resources: # Add this section here
+            requests:
+              memory: "512Mi"
+              cpu: "50m"
+            limits:
+              memory: "1Gi"
+              cpu: "200m"
           ports:
             - containerPort: 3306
           volumeMounts:

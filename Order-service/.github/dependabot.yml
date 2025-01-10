@@ -3,4 +3,4 @@ updates:
   - package-ecosystem: "maven"  # Specify Maven for Java projects
     directory: "/"  # Root directory of the project (where `pom.xml` is located)
     schedule:
-      interval: "weekly"  # Frequency for checking updates (can be daily, weekly, monthly)
+      interval: "monthly"  # Frequency for checking updates (can be daily, weekly, monthly)

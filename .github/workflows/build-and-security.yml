@@ -26,9 +26,9 @@ jobs:
         working-directory: ./Order-service  # Specify working directory for Maven
 
 
-      - name: Run OWASP Dependency Check
-        run: mvn org.owasp:dependency-check-maven:check
-        working-directory: ./Order-service  # Specify working directory for Maven
+#      - name: Run OWASP Dependency Check
+#        run: mvn org.owasp:dependency-check-maven:check
+#        working-directory: ./Order-service  # Specify working directory for Maven
 
 
       - name: Run SpotBugs

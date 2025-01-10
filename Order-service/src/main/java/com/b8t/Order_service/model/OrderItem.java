@@ -22,19 +22,19 @@ public class OrderItem {
     private Long productId;
     private String productName;
     private Long sellerId;
-    private int quantity;
+    private Integer quantity;
     private Double price;
-    private Date createdAt;
     // Many-to-One relationship with OrderDAL
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", referencedColumnName = "id", nullable = false)
     @JsonBackReference
+    @ToString.Exclude  // Add this to exclude from toString()
     private OrderDAL order;
 
     // Override hashCode and equals to avoid conflicts in the Set before id is assigned
     @Override
     public int hashCode() {
-        return Objects.hash(productId, createdAt);
+        return Objects.hash(productId);
     }
 
     @Override
@@ -42,8 +42,7 @@ public class OrderItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderItem orderItem = (OrderItem) o;
-        return Objects.equals(productId, orderItem.productId) &&
-                Objects.equals(createdAt, orderItem.createdAt);
+        return Objects.equals(productId, orderItem.productId);
     }
 
 }

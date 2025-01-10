@@ -1,6 +1,18 @@
 version: 2
 updates:
-  - package-ecosystem: "maven"  # Specify Maven for Java projects
-    directory: "/"  # Root directory of the project (where `pom.xml` is located)
+  - package-ecosystem: "maven"
+    directory: "/"
     schedule:
-      interval: "weekly"  # Frequency for checking updates (can be daily, weekly, monthly)
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "security"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "ci-cd"
+      - "dependencies"

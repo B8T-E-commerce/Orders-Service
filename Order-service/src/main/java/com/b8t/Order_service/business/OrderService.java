@@ -21,15 +21,6 @@ public class OrderService {
         this.orderMapper = orderMapper;
     }
 
-//    public OrderDomain createOrder(OrderDomain orderDomain) {
-//        // Create and populate OrderDAL entity
-//        OrderDAL orderDAL = orderMapper.convertDomainToOrderDAL(orderDomain);
-//        System.out.println("Created manually: " + orderDAL);
-//        System.out.println("Created manually (shipping addresses): " + orderDAL.getShippingAddresses());
-//        System.out.println("Created manually (ordered items): " + orderDAL.getOrderedItems());
-//        return orderMapper.convertOrderDALToDomain(orderRepository.save(orderDAL));
-//    }
-
     public OrderDomain createOrder(OrderDomain orderDomain) {
         // First validate input
         if (orderDomain == null) {
@@ -41,13 +32,6 @@ public class OrderService {
         if (orderDAL == null) {
             throw new IllegalStateException("Failed to map order domain to DAL");
         }
-
-        // Debug logging
-        System.out.println("Created manually: " + orderDAL);
-        System.out.println("Created manually (shipping addresses): " +
-                (orderDAL.getShippingAddresses() != null ? orderDAL.getShippingAddresses() : "null"));
-        System.out.println("Created manually (ordered items): " +
-                (orderDAL.getOrderedItems() != null ? orderDAL.getOrderedItems() : "[]"));
 
         // Save and convert back to domain
         return orderMapper.convertOrderDALToDomain(orderRepository.save(orderDAL));

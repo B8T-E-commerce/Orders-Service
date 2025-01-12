@@ -41,7 +41,7 @@ public class OrdersListener {
         System.out.println(createOrderResponse);
     }
 
-    private CreateOrderRequest buildCreateOrderRequest(Payment payment) {
+    public CreateOrderRequest buildCreateOrderRequest(Payment payment) {
         // Initialize the CreateOrderRequest and set properties based on the Payment
         CreateOrderRequest createOrderRequest = new CreateOrderRequest();
         createOrderRequest.setUserId(payment.getShopperId());
@@ -53,7 +53,7 @@ public class OrdersListener {
         return createOrderRequest;
     }
 
-    private CreateOrderResponse createOrder(CreateOrderRequest createOrderRequest) {
+    public CreateOrderResponse createOrder(CreateOrderRequest createOrderRequest) {
         // Convert the CreateOrderRequest to a domain object, create the order, and convert the response
         return orderMapper.convertDomainToCreateOrderResponse(
                 orderService.createOrder(orderMapper.convertCreateOrderRequestToDomain(createOrderRequest))
@@ -62,7 +62,7 @@ public class OrdersListener {
 
 
     // Mapping ShippingAddresses from Payment to expected format
-    private CreateShippingAddressesRequest mapPaymentShippingAddressesToCreateShippingAddressesRequest(Payment payment) {
+    public CreateShippingAddressesRequest mapPaymentShippingAddressesToCreateShippingAddressesRequest(Payment payment) {
         return CreateShippingAddressesRequest.builder()
                 .address1(payment.getShippingAddresses().getAddress1())
                 .address2(payment.getShippingAddresses().getAddress2())
@@ -75,7 +75,7 @@ public class OrdersListener {
     }
 
     // Mapping Products from Payment to expected format
-    private Set<OrderItem> mapPaymentProductsToOrderItems(Payment payment) {
+    public Set<OrderItem> mapPaymentProductsToOrderItems(Payment payment) {
         Set<OrderItem> orderItems = new HashSet<>(); // Set to hold OrderItem objects
 
         // Check if payment or products are null to avoid NullPointerException

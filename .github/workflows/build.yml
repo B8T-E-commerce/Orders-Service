@@ -45,9 +45,9 @@ jobs:
           ls -la target/surefire-reports/
           echo "JaCoCo report:"
           ls -la target/site/jacoco/
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar 
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          -Dsonar.java.coveragePlugin=jacoco
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+          -Dsonar.java.coveragePlugin=jacoco \
           -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
         working-directory: ./Order-service  # Specify the working directory for Maven to run from
 

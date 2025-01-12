@@ -35,6 +35,7 @@ jobs:
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Using the SonarCloud token from GitHub secrets
 #        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=B8T-E-commerce_Orders-Service -Dsonar.login=${{ secrets.SONAR_TOKEN }}  # Explicitly pass the Sonar token
 #        working-directory: ./Order-service  # Specify the working directory for Maven to run from
+
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -49,6 +50,8 @@ jobs:
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.java.coveragePlugin=jacoco
           -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+        working-directory: ./Order-service  # Specify the working directory for Maven to run from
+
       # Step 6: Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2

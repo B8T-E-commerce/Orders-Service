@@ -31,7 +31,7 @@
 		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
 		<maven.compiler.proc>full</maven.compiler.proc>
 		<spring-cloud.version>2023.0.3</spring-cloud.version>  <!-- Adjust as per your version of Spring Boot -->
-		<sonar.projectKey>B8T-E-commerce_Order-Service</sonar.projectKey>
+		<sonar.projectKey>b8t-e-commerce_orders-service</sonar.projectKey>
 		<sonar.organization>b8t-e-commerce</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<mockito.version>5.10.0</mockito.version>

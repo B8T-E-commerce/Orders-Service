@@ -46,7 +46,7 @@ jobs:
           echo "JaCoCo report:"
           ls -la target/site/jacoco/
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar 
-          -Dsonar.projectKey=b8t-e-commerce_orders-service
+          -Dsonar.projectKey=B8T-E-commerce_Orders-Service
           -Dsonar.organization=b8t-e-commerce
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.java.coveragePlugin=jacoco

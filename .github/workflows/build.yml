@@ -52,8 +52,8 @@ jobs:
           -Dsonar.java.coveragePlugin=jacoco
           -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
           -Dsonar.scm.provider=git \
-          -Dsonar.github.repository=B8T-E-commerce/Orders-Service  # Add this
-        working-directory: ./Order-service  # Specify the working directory for Maven to run from
+          -Dsonar.github.repository=B8T-E-commerce/Orders-Service
+#        working-directory: ./Order-service  # Specify the working directory for Maven to run from
 
       # Step 6: Log in to Docker Hub
       - name: Log in to Docker Hub
